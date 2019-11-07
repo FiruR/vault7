@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="initial-scale=0.1">
+        <style>
+            body {
+                background-color: lightgray;
+            }
+            .btn {
+                width: 5em;
+                height: 2em;
+                font-size: 3em;
+                margin: 2px;
+            }
+            .calc-input {
+                height: 70px;
+                font-size: 2em;
+            }
+            .container {
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group md-3">
+                            <input type="text" class="calc-input form-control" id="result"placeholder="0" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 text-center">
+                    <button class="btn btn-secondary" value="c" onclick="clr()">CE</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-secondary" value="c" onclick="clr()">C</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-secondary"></button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-secondary" value="/" onclick="dis('/')">/</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="7" onclick="dis('7')">7</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="8" onclick="dis('8')">8</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="9" onclick="dis('9')">9</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-secondary"value="*" onclick="dis('*')">*</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="4" onclick="dis('4')">4</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="5" onclick="dis('5')">5</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="6" onclick="dis('6')">6</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-secondary" value="-" onclick="dis('-')">-</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="1" onclick="dis('1')">1</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="1" onclick="dis('2')">2</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary" value="1" onclick="dis('3')">3</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-secondary" value="+" onclick="dis('+')">+</button>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-3 text-center">
+                        <button class="btn btn-secondary"></button>
+                    </div>
+                    <div class="col-3 text-center">
+                        <button class="btn btn-primary" value="0" onclick="dis('0')">0</button>
+                    </div>
+                    <div class="col-3 text-center">
+                        <button class="btn btn-secondary" value="." onclick="dis('.')">.</button>
+                    </div>
+                    <div class="col-3 text-center">
+                        <button class="btn btn-secondary" value="=" onclick="solve()">=</button>
+                    </div>
+                </div>
+        </div>
+           <script src="app.js"> 
+         //function that display value 
+      </script> 
+    </body>
+</html>
+
+
