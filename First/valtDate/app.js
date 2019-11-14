@@ -7,8 +7,8 @@ btn.onclick = function() {
 	let date = new Date(inputValue);
 
 	let day = date.getDay();
-	console.log('day', day)
-	array = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+
+	array = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
 	for (let i=0; i<array.length; i++) {
 		if(day === i) {
@@ -16,4 +16,19 @@ btn.onclick = function() {
 			console.log('data')
 		}
 	}
+};
+
+
+
+var span = document.getElementById('span');
+
+let timeInterval = function() {
+	let dateTime = new Date();
+	let hours = dateTime.getHours();
+	let minutes = dateTime.getMinutes();
+	let seconds = dateTime.getSeconds();
+	span.textContent = ` ${hours} : ${minutes} : ${seconds}`;
 }
+
+
+setInterval(timeInterval, 1000);
