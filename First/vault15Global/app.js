@@ -10,12 +10,26 @@ console.log(add(5)(5));
 
 
 
+function createBuffer() {
+	let result = '';
 
-// function buffer(word) {
-// 	function clear(word){
-// 		word = '';
-// 	}
-// 	return word;
-// }
+	function add(word) {
+		if(word === undefined) {
+			return result;
+		} else {
+			return result += word;
+		}
+	}
 
-// console.log(buffer('Привет'));
+	 add.clear = function(word) {
+		word = '';
+	}
+
+	return add
+}
+
+let buffer = createBuffer();
+buffer('Привет');
+buffer('Nb')
+console.log("text ",buffer());
+console.log("nothing ",buffer().clear);
