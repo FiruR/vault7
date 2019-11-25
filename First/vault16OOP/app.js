@@ -1,14 +1,14 @@
 
 function Machine(power) {
 	this._power = power;
-	this.enabled = false;
+	this._enabled = false;
 
-	this.enabled = function() {
+	this.enable = function() {
 		this._enabled = true;
 	}
 
-	this.disabled = function() {
-		this.enabled = false;
+	this.disable = function() {
+		this._enabled = false;
 	}
 }
 
@@ -19,33 +19,48 @@ function FridgeMachine(power) {
 	let product;
 	let maxPower = 300;
 
-	this.addFood = function(product) {
-		if(power > maxPower ) {
-			return console.log("Error, Max limit");
-		} else if(food.length > 2 ) {
-			console.log('Error, more then three');
-		} else {
-			return food.push(product);
-		}
-	}
 
-	this.takeFood = function(product) {
-		for(let i=0; i < food.length; i++) {
-			if(food[i] === product ) {
-				console.log('iamhere', i);
-				food.splice(i, 1);
-			} 
-		}
-	}
+	// let parentEnable = this.enable;
 
-	this.getFoodList = function() {
-		return food;
-	}
-} 
+	// this.enable = function() {
+	// 		parentEnable.call(this);
+	// }
+
+	// if(this._enabled === true) {
+		this.addFood = function(product) {
+			if(power > maxPower ) {
+				return console.log("Error, Max limit");
+			} else if(food.length > 2 ) {
+				console.log('Error, more then three');
+			} else {
+				return food.push(product);
+			}
+		}
+
+		this.takeFood = function(product) {
+			for(let i=0; i < food.length; i++) {
+				if(food[i] === product ) {
+					console.log('iamhere', i);
+					food.splice(i, 1);
+				} 
+			}
+		}
+
+		this.getFoodList = function() {
+			return food;
+		}
+	} 
+	// else {
+	// 	console.log('Fridge is disabled')
+	// }
+// }
+
+
+
 
 let fridge = new FridgeMachine(200);
 
-// fridge.enable();
+fridge.enable();
 
 fridge.addFood('колбаса');
 fridge.addFood('сыр');
@@ -61,7 +76,7 @@ console.log(foodInFridge);
 
 // fridge.addFood('мясо');// error, more than 3
 
-fridge.takeFood('сыр'); // get cheese
+// fridge.takeFood('сыр'); // get cheese
 
 // fridge.addFood('мясо'); // add myaso
 
@@ -72,6 +87,22 @@ fridge.takeFood('сыр'); // get cheese
 // fridge.addFood('cыр') // error, disabled
 // fridge.takefood('cыр'); // error, disabled
 fridge.getFoodList(); //error, disabled
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
