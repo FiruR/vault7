@@ -18,30 +18,28 @@ function FridgeMachine(power) {
 	let food = [];
 	let product;
 	let maxPower = 300;
+
 	this.addFood = function(product) {
-		if( power > maxPower ) {
-			return console.log("Error, Max limit")
+		if(power > maxPower ) {
+			return console.log("Error, Max limit");
+		} else if(food.length > 2 ) {
+			console.log('Error, more then three');
 		} else {
 			return food.push(product);
 		}
-		
 	}
 
 	this.takeFood = function(product) {
-		if(food.includes(product)) {
-			return console.log('yes');
+		for(let i=0; i < food.length; i++) {
+			if(food[i] === product ) {
+				console.log('iamhere', i);
+				food.splice(i, 1);
+			} 
 		}
 	}
 
 	this.getFoodList = function() {
 		return food;
-	}
-
-	this.run = function() {
-		if(this._enabled) {
-			console.log('enable');
-			self.enable();
-		}
 	}
 } 
 
@@ -73,7 +71,7 @@ fridge.takeFood('сыр'); // get cheese
 
 // fridge.addFood('cыр') // error, disabled
 // fridge.takefood('cыр'); // error, disabled
-// fridge.getFoodList(); //error, disabled
+fridge.getFoodList(); //error, disabled
 
 
 
