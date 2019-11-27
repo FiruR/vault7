@@ -1,63 +1,4 @@
 
-function Machine(power) {
-	this._power = power;
-	this._enabled = false;
-
-	this.enable = function() {
-		this._enabled = true;
-	}
-
-	this.disable = function() {
-		this._enabled = false;
-	}
-}
-
-function FridgeMachine(power) {
-	Machine.call(this,power);
-	let self = this;
-	let food = [];
-	let product;
-	let maxPower = 300;
-
-
-	// let parentEnable = this.enable;
-
-	// this.enable = function() {
-	// 		parentEnable.call(this);
-	// }
-
-	// if(this._enabled === true) {
-		this.addFood = function(product) {
-			if(power > maxPower ) {
-				return console.log("Error, Max limit");
-			} else if(food.length > 2 ) {
-				console.log('Error, more then three');
-			} else {
-				return food.push(product);
-			}
-		}
-
-		this.takeFood = function(product) {
-			for(let i=0; i < food.length; i++) {
-				if(food[i] === product ) {
-					console.log('iamhere', i);
-					food.splice(i, 1);
-				} 
-			}
-		}
-
-		this.getFoodList = function() {
-			return food;
-		}
-	} 
-	// else {
-	// 	console.log('Fridge is disabled')
-	// }
-// }
-
-
-
-
 let fridge = new FridgeMachine(200);
 
 fridge.enable();
@@ -68,25 +9,29 @@ fridge.addFood('молоко');
 
 let foodInFridge = fridge.getFoodList();
 
-console.log(foodInFridge);
+console.log('1', foodInFridge);
 
-// foodInFridge.push('мясо'); // mssive can be changed
+foodInFridge.push('мясо'); // mssive can be changed
 
-// console.log(fridge.getFoodList());
+console.log('get1', fridge.getFoodList());
 
-// fridge.addFood('мясо');// error, more than 3
+fridge.addFood('мясо');// error, more than 3
 
-// fridge.takeFood('сыр'); // get cheese
+fridge.takeFood('молоко'); // get cheese
+console.log('get2', fridge.getFoodList());
 
-// fridge.addFood('мясо'); // add myaso
 
-// fridge.takefood('cыр'); // error not such cheese
+fridge.addFood('мясо'); // add myaso
+
+fridge.takeFood('cыр'); // error not such cheese
+console.log('get3', fridge.getFoodList());
 
 // fridge.disable();
 
 // fridge.addFood('cыр') // error, disabled
-// fridge.takefood('cыр'); // error, disabled
-fridge.getFoodList(); //error, disabled
+// fridge.takeFood('молоко'); //error, disabled
+// fridge.getFoodList(); //error, disabled
+console.log('2', foodInFridge)
 
 
 
